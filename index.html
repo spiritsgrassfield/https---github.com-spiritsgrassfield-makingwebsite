@@ -22,6 +22,13 @@
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C1424;--ink:#DDE6F2;--sub:#9AA9C2;--line:#22304A;--accent:#9DBBEA;--on-accent:#0C1424;--vt-fill:#223F78}}
 :root[data-theme="dark"]{--bg:#0C1424;--ink:#DDE6F2;--sub:#9AA9C2;--line:#22304A;--accent:#9DBBEA;--on-accent:#0C1424;--vt-fill:#223F78}
 
+/* ===== 背景（ライト＝水墨画風／ダーク＝ネイビーの星の光） =====
+   自分の画像に差し替えるときは、下の url("…") のファイル名だけ変えてください */
+:root{--art:url("images/bg-light.svg")}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--art:url("images/bg-dark.svg")}}
+:root[data-theme="dark"]{--art:url("images/bg-dark.svg")}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:var(--art) center bottom/cover no-repeat;pointer-events:none}
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:1rem}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.9 "Noto Sans JP","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;-webkit-text-size-adjust:100%}
